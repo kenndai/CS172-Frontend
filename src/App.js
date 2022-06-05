@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import { ResultContext } from "./contexts/ResultsContext";
+import { URLContext } from "./contexts/URLContext";
+import SearchBar from "./components/SearchBar";
+import Tweet from "./components/Tweet";
+import Boost from "./components/BoostSideBar";
+import Filter from "./components/FilterSideBar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [results, setResults] = useState([]);
+	const [URL, setURL] = useState({
+		base: "https://5d35c1342f4263.lhrtunnel.link/api/search/?",
+		query: [],
+		boost: {},
+		filter: {
+			name: "",
+			page: "",
+			startTime: "",
+			endTime: "",
+		},
+		maxresults: 10,
+	});
+
+	return (
+		<>
+			<URLContext.Provider value={{ URL, setURL }}>
+				<ResultContext.Provider value={{ results, setResults }}>
+					<SearchBar />
+					<div className="container-fluid d-flex justify-content-center mb-4">
+						{URL.query.length === 0 ? null : (
+							<div className="row mt-4 pl-3">
+								<Boost />
+								<div className="tweet-container col-5">
+									<h4>Tweets</h4>
+									{results.map(tweet => (
+										<Tweet tweet={tweet} />
+									))}
+								</div>
+								<Filter />
+							</div>
+						)}
+					</div>
+				</ResultContext.Provider>
+			</URLContext.Provider>
+		</>
+	);
 }
 
 export default App;

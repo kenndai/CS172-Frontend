@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+* {
+	width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+	background-color: #e6ecf0 !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.title {
+	font-family: "Product Sans";
+	font-size: 3.5rem;
+	text-align: center;
+	margin-top: 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.center {
+	display: block;
+	margin: 15px auto;
+	width: 20%;
+	border-radius: 30%;
 }
 
-.App-link {
-  color: #61dafb;
+#wrapper {
+	max-width: 1190px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tweet-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.tweet-container > h4 {
+	text-align: center;
+}
+
+.tweet {
+	background-color: white;
+	border-bottom: 1px solid black;
+	padding: 12px;
+	/* margin-bottom: 15px; */
+}
+
+.tweet-text {
+	display: flex;
+	flex-direction: column;
+	font-size: 15px;
+}
+
+.tweet-author-name {
+	color: rgb(15, 20, 25);
+	font-weight: 700;
+	margin-right: 5px;
+}
+
+.tweet-handle {
+	color: rgb(113, 118, 123);
+	margin-right: 5px;
+}
+
+.tweet-date {
+	color: rgb(113, 118, 123);
+	margin-right: 5px;
+}
+
+.tweet-content {
+	font-weight: 400;
+}
+
+.boost {
+	text-align: center;
+	border-right: 1px solid black;
+}
+
+.filter {
+	text-align: center;
+	border-left: 1px solid black;
+}
+
+.boost-word {
+	font-size: 1.5rem;
 }
