@@ -10,7 +10,7 @@ import Filter from "./components/FilterSideBar";
 function App() {
 	const [results, setResults] = useState([]);
 	const [URL, setURL] = useState({
-		base: "https://5d35c1342f4263.lhrtunnel.link/api/search/?",
+		base: "https://dcadade00a9e76.lhrtunnel.link/api/search/?",
 		query: [],
 		boost: {},
 		filter: {

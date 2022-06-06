@@ -79,3 +79,8 @@ body {
 .boost-word {
 	font-size: 1.5rem;
 }
+
+.boost-value {
+	font-size: 1.25rem;
+	font-weight: 400;
+}

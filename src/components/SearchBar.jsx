@@ -22,7 +22,8 @@ function SearchBar() {
 
 		// initialize every term with a boost value of 1
 		const boostTerms = {};
-		for (let term of queryTerms) boostTerms[term] = 1;
+		const uniqueTerms = new Set(queryTerms);
+		for (let term of uniqueTerms) boostTerms[term] = 1;
 
 		setURL({
 			...URL,
@@ -40,11 +41,12 @@ function SearchBar() {
 
 		// fetch tweets from url
 		try {
-			const res = await fetch(builtURL);
-			const tweets = res.data;
-			// const tweets = await res.json();
-			console.log(tweets);
-			setResults([...tweets]);
+			fetch(builtURL)
+				.then(response => response.json())
+				.then(data => {
+					console.log(data);
+					setResults(data.data);
+				});
 		} catch (error) {
 			console.log(error);
 		}

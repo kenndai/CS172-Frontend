@@ -47,11 +47,12 @@ function Filter() {
 
 		// fetch tweets from url
 		try {
-			const res = await fetch(builtURL);
-			const tweets = res.data;
-			// const tweets = await res.json();
-			console.log(tweets);
-			setResults([...tweets]);
+			fetch(builtURL)
+				.then(response => response.json())
+				.then(data => {
+					console.log(data);
+					setResults(data.data);
+				});
 		} catch (error) {
 			console.log(error);
 		}

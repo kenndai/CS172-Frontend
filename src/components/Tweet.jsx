@@ -10,20 +10,17 @@ function Tweet({ tweet }) {
 		<div className="tweet">
 			<div className="tweet-text">
 				<div className="tweet-author-wrapper">
-					{/* <span className="tweet-author-name mr-3">Tweet Author</span> */}
-					{/* <span className="tweet-date mr-3">Tweet Date</span> */}
-					{/* <span className="tweet-date mr-3">Tweet Score</span> */}
 					<span className="tweet-author-name mr-3">{tweet.name}</span>
 					<span className="tweet-handle mr-3">@{tweet.handle}</span>
 					<span className="tweet-date mr-3">
 						{convertToDate(tweet.timestamp)}
 					</span>
-					<span className="tweet-author-name mr-3">
-						{tweet.score}
-					</span>
 				</div>
-				{/* <span className="tweet-content">{tweet}</span> */}
 				<span className="tweet-content">{tweet.content}</span>
+				<b className=" mr-3 mt-2">Score: {tweet.score}</b>
+				<span>
+					Link to actual tweet: <a href={tweet.url}>{tweet.url}</a>
+				</span>
 			</div>
 		</div>
 	);
